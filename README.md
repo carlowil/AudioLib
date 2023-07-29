@@ -10,4 +10,4 @@ AudioLib - каталог беслпатных аудио книг
 Инструменты:
 - JetpackCompose
 - Firebase
-- 
+- Coil

@@ -51,7 +51,6 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@Preview(showBackground = true)
 @Composable
 fun AudioLib(){
     AudioLibTheme {
@@ -88,26 +87,6 @@ fun AudioLib(){
     }
 }
 
-@Composable
-fun BottomMenu(
-    allScreens : List<AudioLibDestination>,
-    currentScreen : AudioLibDestination,
-    onScreenSelected : (AudioLibDestination) -> Unit
-) {
-    Surface(Modifier.fillMaxWidth()) {
-        NavigationBar {
-            allScreens.forEach { screen ->
-                NavigationBarItem(
-                    icon = { Icon(imageVector = screen.icon, contentDescription = screen.route) },
-                    label = { Text(screen.route.capitalize()) },
-                    selected = currentScreen == screen,
-                    onClick = { onScreenSelected(screen) }
-                )
-            }
-        }
-    }
-}
-
 fun NavHostController.navigateSingleTopTo(route: String) {
     this.navigate(route) {
         // В случае нажатия стрелки назад из любого пункта назначения
@@ -121,26 +100,5 @@ fun NavHostController.navigateSingleTopTo(route: String) {
         restoreState = true
         // Гарантирует, что будет только одна копия в бэкстеке
         launchSingleTop = true
-    }
-}
-
-@Composable
-fun LibraryScreen(modifier: Modifier = Modifier) {
-    Surface(modifier = modifier) {
-        Text(text = "This is LibraryScreen")
-    }
-}
-
-@Composable
-fun ProfileScreen(modifier: Modifier = Modifier) {
-    Surface(modifier = modifier) {
-        Text(text = "This is ProfileScreen")
-    }
-}
-
-@Composable
-fun MyBooksScreen(modifier: Modifier = Modifier) {
-    Surface(modifier = modifier) {
-        Text(text = "This is MyBooksScreen")
     }
 }

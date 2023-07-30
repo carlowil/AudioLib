@@ -1,4 +1,4 @@
-package com.carlowil.audiolib
+package com.carlowil.audiolib.screens
 
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -6,9 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun ProfileScreen(modifier: Modifier = Modifier) {
+fun MyBooksScreen(modifier: Modifier = Modifier) {
     Surface(modifier = modifier) {
-        Text(text = "This is ProfileScreen")
+        Text(text = "This is MyBooksScreen")
     }
 }
-

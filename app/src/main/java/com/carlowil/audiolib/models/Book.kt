@@ -1,4 +1,4 @@
-package com.carlowil.audiolib
+package com.carlowil.audiolib.models
 
 data class Book(
     val name : String,
@@ -6,5 +6,5 @@ data class Book(
     val genre : String,
     val description : String,
     val img : String,
-    val File : String
+    val file : String
 )

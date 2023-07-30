@@ -11,3 +11,4 @@ AudioLib - каталог беслпатных аудио книг
 - JetpackCompose
 - Firebase
 - Coil
+- ViewModel

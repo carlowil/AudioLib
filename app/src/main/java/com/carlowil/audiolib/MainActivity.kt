@@ -3,6 +3,7 @@ package com.carlowil.audiolib
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -12,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.carlowil.audiolib.ui.theme.AudioLibTheme
 import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -26,6 +28,7 @@ import com.carlowil.audiolib.navigation.audioLibBottomBarScreens
 import com.carlowil.audiolib.screens.LibraryScreen
 import com.carlowil.audiolib.screens.MyBooksScreen
 import com.carlowil.audiolib.screens.ProfileScreen
+import com.carlowil.audiolib.viewmodels.AudioLibViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,7 +73,7 @@ fun AudioLib(){
                 }
 
                 composable(route = Library.route) {
-                    LibraryScreen()
+                    LibraryScreen(viewModel())
                 }
 
                 composable(route = Profile.route) {

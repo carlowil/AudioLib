@@ -16,13 +16,9 @@ import com.carlowil.audiolib.sealed.DataState
 import com.carlowil.audiolib.viewmodels.AudioLibViewModel
 
 @Composable
-fun LibraryScreen(viewModel: AudioLibViewModel) {
-    LibraryScreenContent(audioLibViewModel = viewModel)
-}
-
-@Composable
-fun LibraryScreenContent(
-    audioLibViewModel: AudioLibViewModel
+fun LibraryScreen(
+    audioLibViewModel: AudioLibViewModel,
+    onBookSelected : (String) -> Unit
 ) {
     when(val result = audioLibViewModel.response.value) {
         is DataState.Loading -> {
@@ -35,7 +31,7 @@ fun LibraryScreenContent(
         }
 
         is DataState.Success -> {
-            ShowLazyList(result.data)
+            ShowLazyList(result.data, onBookSelected)
         }
 
         is DataState.Failure -> {
@@ -66,10 +62,16 @@ fun LibraryScreenContent(
 }
 
 @Composable
-fun ShowLazyList(books: MutableList<Book>) {
+fun ShowLazyList(
+    books: MutableList<Book>,
+    onBookSelected : (String) -> Unit
+){
     LazyColumn() {
         items(books){book ->
-            BookItem(book = book)
+            BookItem(
+                book = book,
+                onBookSelected = onBookSelected
+            )
         }
     }
 }

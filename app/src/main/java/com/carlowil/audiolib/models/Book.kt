@@ -1,6 +1,7 @@
 package com.carlowil.audiolib.models
 
 data class Book(
+    val id : String,
     val name : String,
     val author : String,
     val genre : String,

@@ -24,6 +24,7 @@ class AudioLibViewModel : ViewModel() {
             query.documents.forEach { document ->
                 tempList.add(
                     Book(
+                        id = document.id,
                         name = document.data?.get("name").toString(),
                         author = document.data?.get("author").toString(),
                         genre = document.data?.get("genre").toString(),
@@ -39,6 +40,13 @@ class AudioLibViewModel : ViewModel() {
         }
     }
 
+    fun getBook(id: String): Book? {
+        val dataState = response.value
+        if(dataState is DataState.Success) {
+            return dataState.data.find { it.id == id }
+        }
+        return null
+    }
 
 }
 

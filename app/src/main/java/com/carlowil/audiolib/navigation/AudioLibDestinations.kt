@@ -25,5 +25,10 @@ object MyBooks : AudioLibDestination {
     override val icon: ImageVector = Icons.Filled.Book
     override val route: String = "mybooks"
 }
+// Поставлю любую иконку, эта информация нам не потребуется (потом нужно будет рефакторить)
+object BookOverview : AudioLibDestination {
+    override val icon: ImageVector = Icons.Filled.Book
+    override val route: String = "bookoverview"
+}
 
 val audioLibBottomBarScreens = listOf(MyBooks, Library, Profile)

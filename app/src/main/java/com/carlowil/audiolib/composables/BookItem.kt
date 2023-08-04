@@ -1,5 +1,6 @@
 package com.carlowil.audiolib.composables
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,17 +17,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.carlowil.audiolib.models.Book
+import com.carlowil.audiolib.navigation.BookOverview
 
 @Composable
 fun BookItem(
     modifier : Modifier = Modifier,
-    book : Book
+    book : Book,
+    onBookSelected : (String) -> Unit
 ) {
     Card(
         modifier = modifier
             .padding(vertical = 4.dp, horizontal = 8.dp)
             .fillMaxWidth()
-            .height(150.dp),
+            .height(150.dp)
+            .clickable { onBookSelected("${BookOverview.route}/${book.id}") },
         shape = CardDefaults.elevatedShape,
     ) {
         CardContent(book = book)

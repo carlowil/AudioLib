@@ -6,7 +6,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.carlowil.audiolib.viewmodels.AudioLibViewModel
 
 @Composable
@@ -19,8 +22,12 @@ fun BookOverviewScreen(
         modifier = Modifier.verticalScroll(rememberScrollState())
     ) {
         AsyncImage(
-            model = book.img,
-            contentDescription = book.name
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(book.img)
+                .crossfade(true)
+                .build(),
+            contentDescription = book.name,
+            contentScale = ContentScale.Crop
         )
         Text(text = book.name)
         Text(text = book.author)

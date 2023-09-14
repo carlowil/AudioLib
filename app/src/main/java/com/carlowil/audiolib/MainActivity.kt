@@ -75,7 +75,10 @@ fun AudioLib(){
                         navController.navigateSingleTopTo(newScreen.route)
                     })
             }
-        }
+        },
+            topBar = {
+
+            }
         ) { innerPadding ->
             NavHost(
                 navController = navController,

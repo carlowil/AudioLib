@@ -66,11 +66,3 @@ fun CardContent(
         }
     }
 }
-
-@Preview
-@Composable
-fun BookItemPreview() {
-    Surface() {
-        
-    }
-}
